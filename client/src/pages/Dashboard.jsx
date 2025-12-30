@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Snowfall from "react-snowfall";
 import { supabase } from "../supabaseClient";
+import bg1 from "../assets/bg5.jpg";
+
 export default function Dashboard() {
   const navigate = useNavigate();
   const [delivery, setDelivery] = useState(null);
@@ -20,7 +22,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <section className="dashboard">
+    <section className="dashboard "     style={{ backgroundImage: `url(${bg1})` }}>
       <button className="btn primary logout-btn" onClick={handleLogout}>
         Logout
       </button>

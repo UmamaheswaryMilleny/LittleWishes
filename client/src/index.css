@@ -247,7 +247,8 @@ Collapse file‎client/src/main.jsx‎
    DASHBOARD (FINAL)
 ============================= */
 .logout-btn {
-  position: absolute;
+  position: relative;
+  z-index: 10;
   top: 20px;
   right: 20px;
 }
