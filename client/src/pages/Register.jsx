@@ -40,7 +40,8 @@ export default function Register() {
           name,
           currentAge,
         },
-        emailRedirectTo: "http://localhost:5173/login",
+     emailRedirectTo: `${import.meta.env.VITE_SITE_URL}/login`,
+
       },
     });
 
@@ -50,7 +51,7 @@ export default function Register() {
       toast.error(error.message);
     } else {
       toast.success(
-        "Registration successful 🎄 Please check your email to confirm your account.",
+        "Registration successful 🎄 Please Login.",
         {
           style: {
             background: "#0B3D2E",
