@@ -1,0 +1,116 @@
+🎄 LittleWishes — Letters Through Santa to Your Younger Self
+📖 Project Description
+
+LittleWishes is a Christmas-themed web application that allows users to send gentle guidance, encouragement, and small starter gifts to their younger self through Santa 🎅.
+
+Instead of focusing on regret or pressure, the app promotes kindness, curiosity, and emotional growth by letting users choose a skill they wish they had started earlier and sending thoughtful resources, habits, and messages to their past self (ages 7–17).
+
+The goal is to transform “I wish I had started earlier” into “I would help myself start gently.”
+
+✨ Features
+
+🎁 Select one skill category (Coding, Communication, Drawing, Reading, Music, Confidence)
+
+🎯 Choose younger self’s age (7–17)
+
+🧸 Pick beginner-friendly gifts and resources
+
+✍️ Write a kind message to your younger self
+
+🎅 One-time Santa delivery (can send only once)
+
+🔐 User authentication (Register / Login)
+
+🚫 Gifts page blocked after delivery
+
+❄️ Christmas snowfall animation
+
+🎨 Festive red-green-gold themed UI
+
+📦 Delivery summary dashboard
+
+🛠 Tech Stack Used
+
+Frontend: React + Vite
+
+Routing: React Router
+
+Authentication: Supabase Auth
+
+State Management: React Hooks
+
+Styling: Custom CSS (Christmas theme)
+
+Animations: react-snowfall
+
+Notifications: react-hot-toast
+
+Hosting: Vercel
+
+⚙️ Setup Instructions
+1️⃣ Clone the repository
+git clone https://github.com/your-username/LittleWishes.git
+cd LittleWishes
+
+2️⃣ Install dependencies
+npm install
+
+3️⃣ Configure environment variables
+
+Create a .env file in the root directory:
+
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+4️⃣ Run the application locally
+npm run dev
+
+
+The app will be available at:
+
+http://localhost:5173
+
+🌍 Hosting on Vercel
+Build command
+npm run build
+
+Install Vercel CLI (once)
+npm install -g vercel
+
+Deploy
+vercel
+
+
+Deployment settings:
+
+Framework: Vite
+
+Build command: npm run build
+
+Output directory: dist
+
+Routing Fix (Required)
+
+Create a vercel.json file:
+
+{
+  "routes": [
+    { "src": "/(.*)", "dest": "/" }
+  ]
+}
+
+🖼 Screenshots of the Application
+
+📌 Add screenshots here after deployment or local run
+
+![Landing Page](screenshots/landing.png)
+![Register Page](screenshots/register.png)
+![Gifts Page](screenshots/gifts.png)
+![Dashboard Page](screenshots/dashboard.png)
+
+
+(Create a screenshots/ folder and place images there)
+
+🎄 Summary
+
+LittleWishes blends emotional design with simple technology to create a meaningful Christmas experience — encouraging reflection, kindness, and gentle learning for the future.
