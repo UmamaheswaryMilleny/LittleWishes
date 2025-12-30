@@ -1,4 +1,4 @@
-<img width="1896" height="879" alt="landing" src="https://github.com/user-attachments/assets/903e0a6d-d22d-427d-9e21-1b10b3dbf1aa" />🎄 LittleWishes — Letters Through Santa to Your Younger Self
+🎄 LittleWishes — Letters Through Santa to Your Younger Self
 📖 Project Description
 
 LittleWishes is a Christmas-themed web application that allows users to send gentle guidance, encouragement, and small starter gifts to their younger self through Santa 🎅.
@@ -104,7 +104,7 @@ Create a vercel.json file:
 📌 Add screenshots here after deployment or local run
 
 
-![Landing Page](<img width="1896" height="879" alt="landing" src="https://github.com/user-attachments/assets/a3857d13-f7b0-4bff-88d5-da192b774d67" />)
+![Landing Page](<img width="1896" height="879" alt="landing" src="https://github.com/user-attachments/assets/903e0a6d-d22d-427d-9e21-1b10b3dbf1aa" />
 
 ![Register Page](<img width="1893" height="873" alt="regsiter" src="https://github.com/user-attachments/assets/4e95d2b9-a7e0-4ce9-af12-67ca9c84de1a" />)
 
