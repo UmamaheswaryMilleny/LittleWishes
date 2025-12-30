@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Snowfall from "react-snowfall";
 import { useNavigate } from "react-router-dom";
+import bg1 from "../assets/bg5.jpg";
+import toast from "react-hot-toast";
 
 const CATEGORIES = [
   { id: "coding", label: "💻 Coding & Technology" },
@@ -35,39 +37,73 @@ const GIFTS = {
 export default function Gifts() {
   const navigate = useNavigate();
 
-  const handleAddToBag = () => {
-    // ❗ Safety check
-    if (selectedGifts.length === 0 && !customGift) {
-      alert("Please add at least one gift for your younger self 🎁");
-      return;
-    }
-
-    const delivery = {
-      youngerAge: 13, // or from earlier step
-      yearDelivered: 2015,
-      categories: selectedCategories,
-      gifts: selectedGifts,
-      customGift: customGift,
-      letter: message,
-      createdAt: new Date().toISOString(),
-    };
-
-    // ✅ SAVE TO LOCAL STORAGE
-    localStorage.setItem("littleWishesDelivery", JSON.stringify(delivery));
-
-    // ✅ REDIRECT TO DASHBOARD
-    navigate("/dashboard");
-  };
-
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  // ✅ ONLY ONE CATEGORY
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedGifts, setSelectedGifts] = useState([]);
   const [customGift, setCustomGift] = useState("");
   const [message, setMessage] = useState("");
+  const [youngerAge, setYoungerAge] = useState("");
 
-  const toggleCategory = (id) => {
-    setSelectedCategories((prev) =>
-      prev.includes(id) ? prev.filter((c) => c !== id) : [...prev, id]
-    );
+const handleAddToBag = () => {
+  if (!selectedCategory) {
+    toast.error("Please choose one skill area first 🎯", {
+      style: {
+        background: "#0B3D2E",
+        color: "#FFFFFF",
+        border: "1px solid #D4AF37",
+      },
+    });
+    return;
+  }
+ if (!youngerAge) {
+    toast.error("Please select your younger self’s age 👶", {
+      style: {
+        background: "#0B3D2E",
+        color: "#FFFFFF",
+        border: "1px solid #D4AF37",
+      },
+    });
+    return;
+  }
+  if (selectedGifts.length === 0 && !customGift) {
+    toast.error("Please add at least one gift for your younger self 🎁", {
+      style: {
+        background: "#0B3D2E",
+        color: "#FFFFFF",
+        border: "1px solid #D4AF37",
+      },
+    });
+    return;
+  }
+
+  const delivery = {
+    youngerAge: Number(youngerAge), // ✅ dynamic
+    yearDelivered: new Date().getFullYear() - Number(youngerAge),
+    category: selectedCategory,
+    gifts: selectedGifts,
+    customGift,
+    letter: message,
+    createdAt: new Date().toISOString(),
+  };
+
+  localStorage.setItem("littleWishesDelivery", JSON.stringify(delivery));
+
+  toast.success("Santa has received your wishes 🎅✨", {
+    style: {
+      background: "#0B3D2E",
+      color: "#FFFFFF",
+      border: "1px solid #D4AF37",
+    },
+  });
+
+  setTimeout(() => {
+    navigate("/dashboard");
+  }, 1200);
+};
+
+  const selectCategory = (id) => {
+    setSelectedCategory(id);
+    setSelectedGifts([]); // 🔁 reset gifts when category changes
   };
 
   const toggleGift = (gift) => {
@@ -77,7 +113,7 @@ export default function Gifts() {
   };
 
   return (
-    <section className="gifts">
+    <section className="gifts bg" style={{ backgroundImage: `url(${bg1})` }}>
       <Snowfall
         snowflakeCount={60}
         color="#FFFFFF"
@@ -95,22 +131,35 @@ export default function Gifts() {
         <header className="gifts-header">
           <h1>🎄 What would help your younger self start gently?</h1>
           <p>
-            Choose small gifts and ideas that could spark curiosity and
-            confidence — without pressure.
+            Choose one skill and send gentle gifts — no pressure, just care.
           </p>
         </header>
-
+<div className="age">
+  <h3>👶 Choose your younger self’s age</h3>
+  <select
+    className="custom-input"
+    value={youngerAge}
+    onChange={(e) => setYoungerAge(e.target.value)}
+  >
+    <option value="">Select age (7–17)</option>
+    {Array.from({ length: 11 }, (_, i) => i + 7).map((age) => (
+      <option key={age} value={age}>
+        {age} years old
+      </option>
+    ))}
+  </select>
+</div>
         {/* CATEGORIES */}
         <section>
-          <h2>🧠 Choose a skill area</h2>
+          <h2>🧠 Choose ONE skill area</h2>
           <div className="category-grid">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat.id}
                 className={`category-card ${
-                  selectedCategories.includes(cat.id) ? "active" : ""
+                  selectedCategory === cat.id ? "active" : ""
                 }`}
-                onClick={() => toggleCategory(cat.id)}
+                onClick={() => selectCategory(cat.id)}
               >
                 {cat.label}
               </button>
@@ -118,12 +167,12 @@ export default function Gifts() {
           </div>
         </section>
 
-        {/* GIFTS */}
-        {selectedCategories.map((cat) => (
-          <section key={cat}>
-            <h3>🎁 Gentle starters for {cat}</h3>
+        {/* GIFTS (ONLY FOR SELECTED CATEGORY) */}
+        {selectedCategory && (
+          <section>
+            <h3>🎁 Gentle starters for {selectedCategory}</h3>
             <div className="gift-grid">
-              {GIFTS[cat].map((gift) => (
+              {GIFTS[selectedCategory].map((gift) => (
                 <label key={gift} className="gift-card">
                   <input
                     type="checkbox"
@@ -135,7 +184,7 @@ export default function Gifts() {
               ))}
             </div>
           </section>
-        ))}
+        )}
 
         {/* CUSTOM GIFT */}
         <section>
@@ -153,7 +202,7 @@ export default function Gifts() {
           <h3>💌 Write a kind message to your younger self</h3>
           <textarea
             className="message-box"
-            placeholder="Don’t worry about being perfect. Just enjoy learning and have fun."
+            placeholder="Don’t worry about being perfect. Just enjoy learning."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
@@ -163,7 +212,12 @@ export default function Gifts() {
         <section className="preview">
           <h3>🎅 Santa’s Delivery Preview</h3>
           <p>
-            <strong>Categories:</strong> {selectedCategories.join(", ")}
+  <strong>Younger age:</strong>{" "}
+  {youngerAge ? `${youngerAge} years old` : "Not selected"}
+</p>
+
+          <p>
+            <strong>Skill:</strong> {selectedCategory || "None selected"}
           </p>
           <p>
             <strong>Gifts:</strong> {selectedGifts.join(", ") || "None yet"}
@@ -180,11 +234,7 @@ export default function Gifts() {
 
         {/* CTA */}
         <div className="cta">
-          <button
-            type="button"
-            className="btn primary"
-            onClick={handleAddToBag}
-          >
+          <button className="btn primary" onClick={handleAddToBag}>
             Add These to Santa’s Bag 📮
           </button>
         </div>

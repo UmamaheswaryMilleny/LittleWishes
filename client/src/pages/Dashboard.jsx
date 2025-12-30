@@ -61,7 +61,8 @@ export default function Dashboard() {
                 🗓 Year delivered: <strong>{delivery.yearDelivered}</strong>
               </p>
               <p>
-                🎁 Gifts delivered: <strong>{delivery.gifts.length}</strong>
+           🎁 Gifts delivered: <strong>{delivery.gifts?.length || 0}</strong>
+
               </p>
             </div>
 
@@ -79,10 +80,8 @@ export default function Dashboard() {
               <div className="delivery-card">
                 <h3>🧠 Categories Chosen</h3>
                 <ul>
-                  {delivery.categories.map((c) => (
-                    <li key={c}>{c}</li>
-                  ))}
-                </ul>
+    <li>{delivery.category}</li>
+  </ul>
               </div>
 
               <div className="delivery-card highlight">
