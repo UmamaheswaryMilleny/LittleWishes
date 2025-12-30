@@ -104,17 +104,17 @@ Create a vercel.json file:
 📌 Add screenshots here after deployment or local run
 
 
-![Landing Page](<img width="1896" height="879" alt="landing" src="https://github.com/user-attachments/assets/903e0a6d-d22d-427d-9e21-1b10b3dbf1aa" />
+Landing Page <img width="1896" height="879" alt="landing" src="https://github.com/user-attachments/assets/903e0a6d-d22d-427d-9e21-1b10b3dbf1aa" />
 
-![Register Page](<img width="1893" height="873" alt="regsiter" src="https://github.com/user-attachments/assets/4e95d2b9-a7e0-4ce9-af12-67ca9c84de1a" />
-
-
-![Login Page](<img width="1906" height="874" alt="login" src="https://github.com/user-attachments/assets/da7a4cdb-dcc9-4074-b065-475c8358424b" />
+Register Page <img width="1893" height="873" alt="regsiter" src="https://github.com/user-attachments/assets/4e95d2b9-a7e0-4ce9-af12-67ca9c84de1a" />
 
 
-![Gifts Page](<img width="1902" height="873" alt="gift" src="https://github.com/user-attachments/assets/40b464b8-33f8-4eb1-8953-6c275cb65cb0" />)<img width="1898" height="880" alt="gift2" src="https://github.com/user-attachments/assets/c0175bee-2721-4acf-87b8-f32e984b1217" /><img width="1896" height="887" alt="gift3" src="https://github.com/user-attachments/assets/12ff3211-2539-421e-97d9-93d483cef886" />
+Login Page <img width="1906" height="874" alt="login" src="https://github.com/user-attachments/assets/da7a4cdb-dcc9-4074-b065-475c8358424b" />
 
-![Dashboard Page](https://github.com/user-attachments/assets/321b6b01-af82-425d-87e6-f7de519d3f7c)
+
+ Gifts Page <img width="1902" height="873" alt="gift" src="https://github.com/user-attachments/assets/40b464b8-33f8-4eb1-8953-6c275cb65cb0" />)<img width="1898" height="880" alt="gift2" src="https://github.com/user-attachments/assets/c0175bee-2721-4acf-87b8-f32e984b1217" /><img width="1896" height="887" alt="gift3" src="https://github.com/user-attachments/assets/12ff3211-2539-421e-97d9-93d483cef886" />
+
+Dashboard Page https://github.com/user-attachments/assets/321b6b01-af82-425d-87e6-f7de519d3f7c
 
 
 🎄 Summary
