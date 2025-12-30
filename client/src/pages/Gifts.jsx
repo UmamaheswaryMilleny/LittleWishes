@@ -2,7 +2,6 @@ import { useState } from "react";
 import Snowfall from "react-snowfall";
 import { useNavigate } from "react-router-dom";
 
-
 const CATEGORIES = [
   { id: "coding", label: "💻 Coding & Technology" },
   { id: "communication", label: "🗣 Communication & English" },
@@ -23,21 +22,9 @@ const GIFTS = {
     "Cartoon / TV show DVD",
     "Listening & speaking cards",
   ],
-  drawing: [
-    "Drawing kit",
-    "Colored pencils",
-    "Sketchbook with prompts",
-  ],
-  reading: [
-    "Illustrated books",
-    "Curiosity magazines",
-    "Flash cards",
-  ],
-  music: [
-    "Simple musical instrument",
-    "Music learning CD",
-    "Rhythm game",
-  ],
+  drawing: ["Drawing kit", "Colored pencils", "Sketchbook with prompts"],
+  reading: ["Illustrated books", "Curiosity magazines", "Flash cards"],
+  music: ["Simple musical instrument", "Music learning CD", "Rhythm game"],
   confidence: [
     "Positive affirmation cards",
     "Habit tracker notebook",
@@ -46,34 +33,31 @@ const GIFTS = {
 };
 
 export default function Gifts() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-const handleAddToBag = () => {
-  // ❗ Safety check
-  if (selectedGifts.length === 0 && !customGift) {
-    alert("Please add at least one gift for your younger self 🎁");
-    return;
-  }
+  const handleAddToBag = () => {
+    // ❗ Safety check
+    if (selectedGifts.length === 0 && !customGift) {
+      alert("Please add at least one gift for your younger self 🎁");
+      return;
+    }
 
-  const delivery = {
-    youngerAge: 13, // or from earlier step
-    yearDelivered: 2015,
-    categories: selectedCategories,
-    gifts: selectedGifts,
-    customGift: customGift,
-    letter: message,
-    createdAt: new Date().toISOString(),
+    const delivery = {
+      youngerAge: 13, // or from earlier step
+      yearDelivered: 2015,
+      categories: selectedCategories,
+      gifts: selectedGifts,
+      customGift: customGift,
+      letter: message,
+      createdAt: new Date().toISOString(),
+    };
+
+    // ✅ SAVE TO LOCAL STORAGE
+    localStorage.setItem("littleWishesDelivery", JSON.stringify(delivery));
+
+    // ✅ REDIRECT TO DASHBOARD
+    navigate("/dashboard");
   };
-
-  // ✅ SAVE TO LOCAL STORAGE
-  localStorage.setItem(
-    "littleWishesDelivery",
-    JSON.stringify(delivery)
-  );
-
-  // ✅ REDIRECT TO DASHBOARD
-  navigate("/dashboard");
-};
 
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedGifts, setSelectedGifts] = useState([]);
@@ -178,22 +162,31 @@ const handleAddToBag = () => {
         {/* PREVIEW */}
         <section className="preview">
           <h3>🎅 Santa’s Delivery Preview</h3>
-          <p><strong>Categories:</strong> {selectedCategories.join(", ")}</p>
-          <p><strong>Gifts:</strong> {selectedGifts.join(", ") || "None yet"}</p>
-          {customGift && <p><strong>Extra gift:</strong> {customGift}</p>}
-          <p className="preview-msg">{message || "Your kind message will appear here."}</p>
+          <p>
+            <strong>Categories:</strong> {selectedCategories.join(", ")}
+          </p>
+          <p>
+            <strong>Gifts:</strong> {selectedGifts.join(", ") || "None yet"}
+          </p>
+          {customGift && (
+            <p>
+              <strong>Extra gift:</strong> {customGift}
+            </p>
+          )}
+          <p className="preview-msg">
+            {message || "Your kind message will appear here."}
+          </p>
         </section>
 
         {/* CTA */}
         <div className="cta">
-    <button
-  type="button"
-  className="btn primary"
-  onClick={handleAddToBag}
->
-  Add These to Santa’s Bag 📮
-</button>
-
+          <button
+            type="button"
+            className="btn primary"
+            onClick={handleAddToBag}
+          >
+            Add These to Santa’s Bag 📮
+          </button>
         </div>
       </div>
     </section>

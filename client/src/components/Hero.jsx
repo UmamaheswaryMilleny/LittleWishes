@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import santa2 from "../assets/santa2.png";
 import Snowfall from "react-snowfall";
 import logo from "../assets/logo.png";
-// import AnimatedCursor from "react-animated-cursor";
-
+import bg1 from "../assets/bg5.jpg"
 export default function Hero() {
   return (
-    <section className="hero">
+    <section className="hero bg"    style={{
+        backgroundImage: `url(${bg1})`,
+      }}>
       <Snowfall
         snowflakeCount={120}
         color="#FFFFFF"
@@ -18,15 +19,6 @@ export default function Hero() {
           pointerEvents: "none",
         }}
       />
-{/* <AnimatedCursor
-  innerSize={8}
-  outerSize={35}
-  color="255, 255, 255"
-  outerAlpha={0.15}
-  innerScale={1}
-  outerScale={1.4}
-  trailingSpeed={6}
-/> */}
 
 
 

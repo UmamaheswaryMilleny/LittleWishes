@@ -6,11 +6,10 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [delivery, setDelivery] = useState(null);
 
-
-const handleLogout = async () => {
-  await supabase.auth.signOut();
-  navigate("/login");
-};
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    navigate("/login");
+  };
 
   useEffect(() => {
     const saved = localStorage.getItem("littleWishesDelivery");
@@ -22,9 +21,9 @@ const handleLogout = async () => {
 
   return (
     <section className="dashboard">
-        <button className="btn primary logout-btn" onClick={handleLogout}>
-    Logout
-  </button>
+      <button className="btn primary logout-btn" onClick={handleLogout}>
+        Logout
+      </button>
       <Snowfall
         snowflakeCount={60}
         color="#FFFFFF"
@@ -32,22 +31,19 @@ const handleLogout = async () => {
       />
 
       <div className="dashboard-content">
-
         {/* 🔁 STATE 1: NO GIFTS */}
         {!delivery && (
           <>
             <h1>🎅 Santa hasn’t delivered anything yet</h1>
             <p>Let’s prepare a gentle gift for your younger self.</p>
 
-            <button
-              className="btn primary"
-              onClick={() => navigate("/gifts")}
-            >
+            <button className="btn primary" onClick={() => navigate("/gifts")}>
               Choose Gifts for My Younger Self 🎁
             </button>
 
             <p className="soft-note">
-              You can send one gentle gift and message. Santa delivers only once.
+              You can send one gentle gift and message. Santa delivers only
+              once.
             </p>
           </>
         )}
@@ -58,9 +54,15 @@ const handleLogout = async () => {
             <h1>🎅 Santa has delivered your gifts 🎄</h1>
 
             <div className="summary-card">
-              <p>👶 Younger age: <strong>{delivery.youngerAge}</strong></p>
-              <p>🗓 Year delivered: <strong>{delivery.yearDelivered}</strong></p>
-              <p>🎁 Gifts delivered: <strong>{delivery.gifts.length}</strong></p>
+              <p>
+                👶 Younger age: <strong>{delivery.youngerAge}</strong>
+              </p>
+              <p>
+                🗓 Year delivered: <strong>{delivery.yearDelivered}</strong>
+              </p>
+              <p>
+                🎁 Gifts delivered: <strong>{delivery.gifts.length}</strong>
+              </p>
             </div>
 
             <div className="delivery-grid">
@@ -96,7 +98,6 @@ const handleLogout = async () => {
             </div>
           </>
         )}
-
       </div>
     </section>
   );

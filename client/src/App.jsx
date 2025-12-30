@@ -6,7 +6,9 @@ import Dashboard from "./pages/Dashboard";
 import Gifts from "./pages/Gifts";
 
 export default function App() {
+  
   return (
+    
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />

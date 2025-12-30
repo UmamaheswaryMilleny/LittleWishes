@@ -4,19 +4,22 @@ import Snowfall from "react-snowfall";
 import logo from "../assets/logo.png";
 import { supabase } from "../supabaseClient";
 import toast from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import bg1 from "../assets/bg5.jpg";
 
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState(""); // NEW
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // 👁
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // 👁
   const [name, setName] = useState("");
-  const [currentAge, setCurrentAge] = useState(""); // NEW
+  const [currentAge, setCurrentAge] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    // ✅ BASIC VALIDATION
     if (password !== confirmPassword) {
       toast.error("Passwords do not match 🎄");
       return;
@@ -35,7 +38,7 @@ export default function Register() {
       options: {
         data: {
           name,
-          currentAge, // ✅ STORE CURRENT AGE IN USER METADATA
+          currentAge,
         },
         emailRedirectTo: "http://localhost:5173/login",
       },
@@ -57,7 +60,6 @@ export default function Register() {
         }
       );
 
-      // ✅ CLEAR FORM FIELDS
       setName("");
       setEmail("");
       setPassword("");
@@ -67,11 +69,17 @@ export default function Register() {
   };
 
   return (
-    <section className="auth">
+    <section
+      className="auth bg"
+      style={{ backgroundImage: `url(${bg1})` }}
+    >
       <Snowfall snowflakeCount={80} color="#FFFFFF" />
 
       <div className="auth-box">
-        <img src={logo} alt="LittleWishes logo" className="auth-logo" />
+        <Link to="/">
+          <img src={logo} alt="LittleWishes logo" className="auth-logo" />
+        </Link>
+
         <h1>Begin Your Journey ✨</h1>
 
         <form onSubmit={handleRegister}>
@@ -90,7 +98,6 @@ export default function Register() {
             required
           />
 
-          {/* ✅ CURRENT AGE */}
           <input
             type="number"
             placeholder="Current Age (18+)"
@@ -100,22 +107,41 @@ export default function Register() {
             required
           />
 
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          {/* 👁 PASSWORD */}
+          <div className="input-wrapper">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <span
+              className="eye-icon"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
 
-          {/* ✅ CONFIRM PASSWORD */}
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
+          {/* 👁 CONFIRM PASSWORD */}
+          <div className="input-wrapper">
+            <input
+              type={showConfirmPassword ? "text" : "password"}
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+            <span
+              className="eye-icon"
+              onClick={() =>
+                setShowConfirmPassword(!showConfirmPassword)
+              }
+            >
+              {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
 
           <button className="btn primary">
             {loading ? "Creating..." : "Register"}

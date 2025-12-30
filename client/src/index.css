@@ -1,14 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500&display=swap");
 
-/* =============================
-   ROOT THEME
-============================= */
-
 :root {
-  --red: #B11226;
-  --white: #FFFFFF;
-  --green: #0B3D2E;
-  --gold: #D4AF37;
+  --red: #b11226;
+  --white: #ffffff;
+  --green: #0b3d2e;
+  --gold: #d4af37;
 }
 
 * {
@@ -19,67 +15,61 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background: var(--red);
+  background-color: var(--red);
   color: var(--white);
   overflow-x: hidden;
 }
 
-/* =============================
-   COMMON BUTTONS
-============================= */
+.bg {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
 
-.btn {
-  padding: 14px 36px;
-  border-radius: 30px;
+  /* background image setup */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: inherit; /* use same bg image */
+  background-size: cover;
+  background-position: center;
+
+  filter: blur(3px);           /* 👈 control blur here */
+  transform: scale(1.05);      /* prevents edge clipping */
+  z-index: 0;
+}
+
+
+.nav {
+  position: absolute;
+  top: 30px;
+  right: 60px;
+  display: flex;
+  gap: 30px;
+}
+
+.nav a {
+  color: var(--white);
   text-decoration: none;
   font-weight: 500;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn.primary {
-  background: var(--green);
-  color: var(--white);
-}
-
-.btn.primary:hover {
-  box-shadow: 0 0 15px rgba(11, 61, 46, 0.6);
-}
-
-.btn.secondary {
-  background: transparent;
-  color: var(--white);
-  border: 2px solid var(--white);
-}
-
-.btn.secondary:hover {
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
-}
-
-/* =============================
-   LANDING / HERO
-============================= */
-
-.hero {
-  min-height: 100vh;
-  position: relative;
-  background: var(--red);
-  overflow: hidden;
 }
 
 .hero-content {
-  height: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  height: 100%;
   padding: 0 8%;
-  position: relative;
-  z-index: 5;
 }
 
 .text {
   max-width: 520px;
+  transform: translateY(-40px);
 }
 
 .text h1 {
@@ -93,6 +83,9 @@ body {
   font-size: 1.1rem;
   opacity: 0.85;
 }
+.btn:hover {
+  cursor: pointer;
+}
 
 .text p {
   margin-top: 20px;
@@ -105,11 +98,153 @@ body {
   gap: 20px;
 }
 
-.image img {
-  width: 420px;
-  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
+.btn {
+  padding: 14px 36px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
+.primary {
+  background: var(--green);
+  color: var(--white);
+}
+
+.primary:hover {
+  box-shadow: 0 0 15px rgba(11, 61, 46, 0.6);
+}
+
+.secondary {
+  border: 2px solid var(--white);
+  color: var(--white);
+}
+
+.secondary:hover {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+
+.image img {
+  width: 350px;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
+  transform: translateY(-50px);
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+}
+
+.nav {
+  position: relative;
+  z-index: 6;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 120px;
+  }
+
+  .image img {
+    width: 300px;
+    margin-top: 40px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}
+.nav {
+  position: absolute;
+  top: 30px;
+  left: 60px;
+  right: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 6;
+}
+.logo img {
+  height: 90px; /* Small, elegant */
+  position: relative;
+  z-index: 3;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+/* AUTH PAGES */
+
+.auth {
+  height: 100vh;
+  background: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.auth-box {
+  position: relative;
+     /* min-height: 560px; */
+  z-index: 5;
+  width: 360px;
+  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+.auth-logo {
+  height: 80px;
+  margin-bottom: 5px;
+}
+
+.auth-box h1 {
+  font-family: "Pacifico", cursive;
+  /* margin-bottom: 8px; */
+}
+
+.auth-box p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 14px;
+}
+.auth-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.auth-box input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+}
+.auth-box input::placeholder {
+  color: #999;
+}
+.auth-box button {
+  margin-top: 10px;
+}
+.auth-link {
+  display: block;
+  margin-top: 18px;
+  font-size: 0.85rem;
+}
+.auth-link a {
+  color: var(--gold);
+  text-decoration: none;
+}
+Collapse file‎client/src/main.jsx‎
 /* =============================
    DASHBOARD (FINAL)
 ============================= */
@@ -118,7 +253,6 @@ body {
   top: 20px;
   right: 20px;
 }
-
 
 .dashboard {
   min-height: 100vh;
@@ -337,4 +471,33 @@ body {
     flex-direction: column;
     align-items: center;
   }
+}
+
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 44px 12px 14px; /* space for eye icon */
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+  font-size: 1rem;
+}
+
+.eye-icon:hover {
+  color: var(--gold);
 }
