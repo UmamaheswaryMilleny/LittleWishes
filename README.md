@@ -32,7 +32,7 @@ Little Wishes is a heartwarming, Christmas-themed application designed to let us
   <p><em>Gifts Step 2 - Select gentle gifts.</em></p>
   <br />
 
-  <img src="./client/public/screenshots/gifts_step3.png" alt="Gifts - Step 3" width="800" />
+  <img src="./client/public/gifts_step3.png" alt="Gifts - Step 3" width="800" />
   <p><em>Gifts Step 3 - Review and add a message.</em></p>
   <br />
 
