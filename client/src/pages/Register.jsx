@@ -51,7 +51,7 @@ export default function Register() {
       toast.error(error.message);
     } else {
       toast.success(
-        "Registration successful 🎄 Please Login.",
+        "Registration successful 🎄 Please confirm email and Login.",
         {
           style: {
             background: "#0B3D2E",
