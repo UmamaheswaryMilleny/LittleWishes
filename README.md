@@ -12,23 +12,23 @@ Little Wishes is a heartwarming, Christmas-themed application designed to let us
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="./client/public/screenshots/landing_page.png" alt="Landing Page" width="800" />
+  <img src="./client/public/landing_page.png" alt="Landing Page" width="800" />
   <p><em>The Landing Page - A warm welcome to the app.</em></p>
   <br />
 
-  <img src="./client/public/screenshots/login.png" alt="Login Page" width="800" />
+  <img src="./client/public/login.png" alt="Login Page" width="800" />
   <p><em>Login Page - Secure authentication.</em></p>
   <br />
 
-  <img src="./client/public/screenshots/register.png" alt="Register Page" width="800" />
+  <img src="./client/public/register.png" alt="Register Page" width="800" />
   <p><em>Register Page - Join the magic.</em></p>
   <br />
 
-  <img src="./client/public/screenshots/gifts_step1.png" alt="Gifts - Step 1" width="800" />
+  <img src="./client/public/gifts_step1.png" alt="Gifts - Step 1" width="800" />
   <p><em>Gifts Step 1 - Choose a skill area.</em></p>
   <br />
 
-  <img src="./client/public/screenshots/gifts_step2.png" alt="Gifts - Step 2" width="800" />
+  <img src="./client/public/gifts_step2.png" alt="Gifts - Step 2" width="800" />
   <p><em>Gifts Step 2 - Select gentle gifts.</em></p>
   <br />
 
@@ -36,11 +36,11 @@ Little Wishes is a heartwarming, Christmas-themed application designed to let us
   <p><em>Gifts Step 3 - Review and add a message.</em></p>
   <br />
 
-  <img src="./client/public/screenshots/dashboard_initial.png" alt="Dashboard - Initial" width="800" />
+  <img src="./client/public/dashboard_initial.png" alt="Dashboard - Initial" width="800" />
   <p><em>Dashboard (Initial) - Before sending any gifts.</em></p>
   <br />
 
-  <img src="./client/public/screenshots/dashboard_submitted.png" alt="Dashboard - Submitted" width="800" />
+  <img src="./client/public/dashboard_submitted.png" alt="Dashboard - Submitted" width="800" />
   <p><em>Dashboard (Submitted) - After Santa has received your wishes.</em></p>
 </div>
 
