@@ -1,122 +1,135 @@
-🎄 LittleWishes — Letters Through Santa to Your Younger Self
-📖 Project Description
+# Little Wishes 🎄✨
 
-LittleWishes is a Christmas-themed web application that allows users to send gentle guidance, encouragement, and small starter gifts to their younger self through Santa 🎅.
+<div align="center">
+  <img src="./client/public/logo.png" alt="Little Wishes Logo" width="120" />
+  <br />
+</div>
 
-Instead of focusing on regret or pressure, the app promotes kindness, curiosity, and emotional growth by letting users choose a skill they wish they had started earlier and sending thoughtful resources, habits, and messages to their past self (ages 7–17).
+**Letters Through Santa to Your Younger Self.**
 
-The goal is to transform “I wish I had started earlier” into “I would help myself start gently.”
+Little Wishes is a heartwarming, Christmas-themed application designed to let users reconnect with their inner child. It allows you to send "gentle gifts" and kind messages to your younger self, nurturing past interests and offering the encouragement you might have needed back then.
 
-✨ Features
+## 📸 Screenshots
 
-🎁 Select one skill category (Coding, Communication, Drawing, Reading, Music, Confidence)
+<div align="center">
+  <img src="./client/public/screenshots/landing_page.jpeg" alt="Landing Page" width="800" />
+  <p><em>The Landing Page - A warm welcome to the app.</em></p>
+  <br />
 
-🎯 Choose younger self’s age (7–17)
+  <img src="./client/public/screenshots/login.jpeg" alt="Login Page" width="800" />
+  <p><em>Login Page - Secure authentication.</em></p>
+  <br />
 
-🧸 Pick beginner-friendly gifts and resources
+  <img src="./client/public/screenshots/register.jpeg" alt="Register Page" width="800" />
+  <p><em>Register Page - Join the magic.</em></p>
+  <br />
 
-✍️ Write a kind message to your younger self
+  <img src="./client/public/screenshots/gifts_step1.jpeg" alt="Gifts - Step 1" width="800" />
+  <p><em>Gifts Step 1 - Choose a skill area.</em></p>
+  <br />
 
-🎅 One-time Santa delivery (can send only once)
+  <img src="./client/public/screenshots/gifts_step2.jpeg" alt="Gifts - Step 2" width="800" />
+  <p><em>Gifts Step 2 - Select gentle gifts.</em></p>
+  <br />
 
-🔐 User authentication (Register / Login)
+  <img src="./client/public/screenshots/gifts_step3.jpeg" alt="Gifts - Step 3" width="800" />
+  <p><em>Gifts Step 3 - Review and add a message.</em></p>
+  <br />
 
-🚫 Gifts page blocked after delivery
+  <img src="./client/public/screenshots/dashboard_initial.jpeg" alt="Dashboard - Initial" width="800" />
+  <p><em>Dashboard (Initial) - Before sending any gifts.</em></p>
+  <br />
 
-❄️ Christmas snowfall animation
-
-🎨 Festive red-green-gold themed UI
-
-📦 Delivery summary dashboard
-
-🛠 Tech Stack Used
-
-Frontend: React + Vite
-
-Routing: React Router
-
-Authentication: Supabase Auth
-
-State Management: React Hooks
-
-Styling: Custom CSS (Christmas theme)
-
-Animations: react-snowfall
-
-Notifications: react-hot-toast
-
-Hosting: Vercel
-
-⚙️ Setup Instructions
-1️⃣ Clone the repository
-git clone https://github.com/your-username/LittleWishes.git
-cd LittleWishes
-
-2️⃣ Install dependencies
-npm install
-
-3️⃣ Configure environment variables
-
-Create a .env file in the root directory:
-
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-
-4️⃣ Run the application locally
-npm run dev
+  <img src="./client/public/screenshots/dashboard_submitted.jpeg" alt="Dashboard - Submitted" width="800" />
+  <p><em>Dashboard (Submitted) - After Santa has received your wishes.</em></p>
+</div>
 
 
-The app will be available at:
+## 📖 About The Project
 
-http://localhost:5173
+This project serves as a reflective and therapeutic tool wrapped in a festive UI. Users can:
+- **Choose their younger age** (from 7 to 17).
+- **Select a skill area** they wish to encourage (e.g., Coding, Drawing, Music).
+- **Pick "gentle starter gifts"** that are low-pressure and fun.
+- **Write a personal letter** to their younger self.
+- **"Send" it via Santa**, visualizing the care and support for their past self.
 
-🌍 Hosting on Vercel
-Build command
-npm run build
+## 🛠️ Tech Stack
 
-Install Vercel CLI (once)
-npm install -g vercel
+- **Frontend:** [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Routing:** [React Router DOM](https://reactrouter.com/)
+- **Styling:** Vanilla CSS (Custom Christmas Theme)
+- **Backend / Auth:** [Supabase](https://supabase.com/)
+- **Notifications:** [React Hot Toast](https://react-hot-toast.com/)
+- **Effects:** [React Snowfall](https://github.com/cahilfoley/react-snowfall)
+- **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
 
-Deploy
-vercel
+## 🚀 Getting Started
 
+Follow these steps to get a local copy up and running.
 
-Deployment settings:
+### Prerequisites
 
-Framework: Vite
+- Node.js (v18 or higher recommended)
+- npm
 
-Build command: npm run build
+### Installation
 
-Output directory: dist
+1. **Clone the repository**
+   ```sh
+   git clone https://github.com/your-username/littlewishes.git
+   cd littlewishes/client
+   ```
 
-Routing Fix (Required)
+2. **Install dependencies**
+   ```sh
+   npm install
+   ```
 
-Create a vercel.json file:
+3. **Environment Setup**
+    create a `.env` file in the `client` directory and add your Supabase credentials:
+   ```env
+   VITE_SUPABASE_URL=your_supabase_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
 
-{
-  "routes": [
-    { "src": "/(.*)", "dest": "/" }
-  ]
-}
+4. **Run the development server**
+   ```sh
+   npm run dev
+   ```
 
-🖼 Screenshots of the Application
+## 🌟 Key Features
 
-📌 Add screenshots here after deployment or local run
+- **Landing Page:** A warm welcome with a festive hero section.
+- **Authentication:** Secure Login and Registration via Supabase.
+- **Interactive Gifts Page:**
+  - Dynamic age selection.
+  - Category-based gift suggestions.
+  - Custom gift input.
+  - Message editor.
+- **Dashboard:** A central hub to view your letters and gifts (Santa's delivery status).
+- **Visual Effects:** Falling snow and responsive, premium holiday design.
 
+## 📂 Project Structure
 
-Landing Page <img width="1896" height="879" alt="landing" src="https://github.com/user-attachments/assets/903e0a6d-d22d-427d-9e21-1b10b3dbf1aa" />
+```
+client/
+├── public/              # Static assets
+├── src/
+│   ├── assets/          # Images and media
+│   ├── components/      # Reusable UI components (Hero, ProtectedRoute)
+│   ├── pages/           # Page views (Landing, Login, Gifts, Dashboard)
+│   ├── App.jsx          # Main application component & Routing
+│   ├── main.jsx         # Entry point
+│   └── supabaseClient.js # Supabase configuration
+├── .env                 # Environment variables
+├── index.html           # HTML template
+└── package.json         # Dependencies and scripts
+```
 
-Register Page <img width="1893" height="873" alt="regsiter" src="https://github.com/user-attachments/assets/4e95d2b9-a7e0-4ce9-af12-67ca9c84de1a" />
+## 📜 License
 
+Distributed under the MIT License.
 
-Login Page <img width="1906" height="874" alt="login" src="https://github.com/user-attachments/assets/da7a4cdb-dcc9-4074-b065-475c8358424b" />
-
-
- Gifts Page <img width="1902" height="873" alt="gift" src="https://github.com/user-attachments/assets/40b464b8-33f8-4eb1-8953-6c275cb65cb0" />)<img width="1898" height="880" alt="gift2" src="https://github.com/user-attachments/assets/c0175bee-2721-4acf-87b8-f32e984b1217" /><img width="1896" height="887" alt="gift3" src="https://github.com/user-attachments/assets/12ff3211-2539-421e-97d9-93d483cef886" />
-
-
-
-
-🎄 Summary
-
-LittleWishes blends emotional design with simple technology to create a meaningful Christmas experience — encouraging reflection, kindness, and gentle learning for the future.
+---
+*Spread a little magic this Christmas!* 🎅🎁
