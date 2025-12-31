@@ -40,7 +40,7 @@ export default function Register() {
           name,
           currentAge,
         },
-     emailRedirectTo: `${import.meta.env.VITE_SITE_URL}/login`,
+     emailRedirectTo: `${import.meta.env.VITE_SITE_URL}`,
 
       },
     });
